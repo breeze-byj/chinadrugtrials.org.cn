@@ -9,11 +9,11 @@ from utils.encapsulation import write_csv, get_ele_number
 class CfdiSpider:
     def CFDI_Start(self):
         # 先获取数据长度
-        cfdi_num_url = 'https://beian.cfdi.org.cn/CTMDS/pub/PUB010100.do?method=handle06'
+        cfdi_num_url = 'https://beian.cfdi.org.cn/************'
         num_resp = requests.get(cfdi_num_url).text
         cfdi_num_list = json.loads(num_resp)
         totalRows = int(cfdi_num_list['totalRows'])
-        site_info_url = f'https://beian.cfdi.org.cn/CTMDS/pub/PUB010100.do?method=handle06&pageSize={totalRows + 1}&curPage=1'
+        site_info_url = f'https://beian.cfdi.org.cn/*************'
         print('------------------- | CFDI   Start | -------------------')
         site_resp = requests.get(site_info_url).text
         cfdi_site_list = json.loads(site_resp)
@@ -46,7 +46,7 @@ class CfdiSpider:
 
         # 循环comcompanyid_list获取cfdi_site_pi/cfdi_site_ck数据
         for companyid in tqdm(comcompanyid_list):
-            site_pi_url = f"https://beian.cfdi.org.cn/CTMDS/pub/PUB010100.do?method=handle07&compId={companyid}"
+            site_pi_url = f"https://beian.cfdi.org.cn/********************"
             html = self.get_pi_ck_result(companyid, site_pi_url)
 
             site_pi_list = self.get_cfdi_site_pi(html, companyid)

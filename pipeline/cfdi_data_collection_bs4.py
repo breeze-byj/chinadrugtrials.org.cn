@@ -13,11 +13,11 @@ class CfdiSpider:
     def CFDI_Start(self):
         global content
         # 先获取数据长度
-        cfdi_num_url = 'https://beian.cfdi.org.cn/CTMDS/pub/PUB010100.do?method=handle06'
+        cfdi_num_url = 'https://beian.cfdi.org.cn/**********************'
         num_resp = requests.get(cfdi_num_url).text
         cfdi_num_list = json.loads(num_resp)
         totalRows = int(cfdi_num_list['totalRows'])
-        site_info_url = f'https://beian.cfdi.org.cn/CTMDS/pub/PUB010100.do?method=handle06&pageSize={totalRows + 1}&curPage=1'
+        site_info_url = f'https://beian.cfdi.org.cn/*******************'
         print('------------------- | CFDI数据采集Start | -------------------')
         site_resp = requests.get(site_info_url).text
         cfdi_site_list = json.loads(site_resp)
@@ -36,7 +36,7 @@ class CfdiSpider:
             cfdi_site_data = [companyid, address, areaname, compname, linkman, linktel, recordno, recordstatus]
             site_info_list.append(cfdi_site_data)
 
-            site_pi_url = f"https://beian.cfdi.org.cn/CTMDS/pub/PUB010100.do?method=handle07&compId={companyid}"
+            site_pi_url = f"https://beian.cfdi.org.cn/*******************"
 
             resp = requests.get(site_pi_url, timeout=(3, 7)).text
 
