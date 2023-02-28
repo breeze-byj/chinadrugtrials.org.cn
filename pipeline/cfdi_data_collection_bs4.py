@@ -13,11 +13,11 @@ class CfdiSpider:
     def CFDI_Start(self):
         global content
         # 先获取数据长度
-        cfdi_num_url = 'https://beian.cfdi.org.cn/**********************'
+        cfdi_num_url = 'aHR0cHM6Ly9iZWlhbi5jZmRpLm9yZy5jbi9DVE1EUy9wdWIvUFVCMDEwMTAwLmRvP21ldGhvZD1oYW5kbGUwNg=='
         num_resp = requests.get(cfdi_num_url).text
         cfdi_num_list = json.loads(num_resp)
         totalRows = int(cfdi_num_list['totalRows'])
-        site_info_url = f'https://beian.cfdi.org.cn/*******************'
+        site_info_url = f'aHR0cHM6Ly9iZWlhbi5jZmRpLm9yZy5jbi9DVE1EUy9wdWIvUFVCMDEwMTAwLmRvP21ldGhvZD1oYW5kbGUwNiZwYWdlU2l6ZT17dG90YWxSb3dzICsgMX0mY3VyUGFnZT0x'
         print('------------------- | CFDI数据采集Start | -------------------')
         site_resp = requests.get(site_info_url).text
         cfdi_site_list = json.loads(site_resp)
@@ -36,7 +36,7 @@ class CfdiSpider:
             cfdi_site_data = [companyid, address, areaname, compname, linkman, linktel, recordno, recordstatus]
             site_info_list.append(cfdi_site_data)
 
-            site_pi_url = f"https://beian.cfdi.org.cn/*******************"
+            site_pi_url = f"aHR0cHM6Ly9iZWlhbi5jZmRpLm9yZy5jbi9DVE1EUy9wdWIvUFVCMDEwMTAwLmRvP21ldGhvZD1oYW5kbGUwNyZjb21wSWQ9e2NvbXBhbnlpZH0="
 
             resp = requests.get(site_pi_url, timeout=(3, 7)).text
 

@@ -36,7 +36,7 @@ def thread_start():
     # 将cde/cfdi存入线程组
     threads_list = []
     threads_list.append(Thread(target=run_cde))
-    threads_list.append(Thread(target=run_cfdi))
+    # threads_list.append(Thread(target=run_cfdi))
     for thread in threads_list:
         thread.start()
 
